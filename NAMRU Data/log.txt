@@ -1,0 +1,45 @@
+Created log at: '9/20/2024 12:12:07 PM'
+StartFennec()
+TryToFindOrCreateTextTrialResultsDirectory(dirPath_TrialResultsDirectory: 'NAMRU Data\TrialResults')
+TryToFindOrCreateDirectory(dirPath_passed: 'NAMRU Data\TrialResults')
+DID find already existing directory at: 'NAMRU Data\TrialResults'.
+[Ring6] >> Awake
+[Ring5] >> Awake
+[Ring4 (1)] >> Awake
+[Ring3 (1)] >> Awake
+[Ring2 (1)] >> Awake
+[Ring1 (1)] >> Awake
+[Game Manager] >> Start()
+Start()
+[Canvas] >> Start()
+[Canvas] >> UI_Btn_Go_action()
+	[Game Manager] >> ChangeState(CountdownToStart)
+		[Canvas] >> ChangeState(CountdownToStart)
+[Game Manager] >> ChangeState(SolvingPrompt)
+	[Canvas] >> ChangeState(SolvingPrompt)
+[Canvas] >> UI_Btn1_action()
+	[Canvas] >> ChoiceMade_action(False)
+		[Game Manager] >> ChangeState(PromptSolvedFeedback)
+			[Canvas] >> ChangeState(PromptSolvedFeedback)
+[Game Manager] >> ChangeState(RingIsExploding)
+	[Game Manager] >> ExplodeRing()
+	[Canvas] >> ChangeState(RingIsExploding)
+[Game Manager] >> ChangeState(SolvingPrompt)
+	[Canvas] >> ChangeState(SolvingPrompt)
+[Canvas] >> UI_Btn2_action()
+	[Canvas] >> ChoiceMade_action(True)
+		[Game Manager] >> ChangeState(PromptSolvedFeedback)
+			[Canvas] >> ChangeState(PromptSolvedFeedback)
+[Game Manager] >> ChangeState(SolvingPrompt)
+	[Canvas] >> ChangeState(SolvingPrompt)
+[Canvas] >> UI_Btn2_action()
+	[Canvas] >> ChoiceMade_action(True)
+		[Game Manager] >> ChangeState(PromptSolvedFeedback)
+			[Canvas] >> ChangeState(PromptSolvedFeedback)
+[Game Manager] >> ChangeState(SolvingPrompt)
+	[Canvas] >> ChangeState(SolvingPrompt)
+[Game Manager] >> QuitApplication()
+CloseMe()
+CloseUDPConnection()
+Was going to close udpClient, but found it was already null...
+DisposeAllWriters()

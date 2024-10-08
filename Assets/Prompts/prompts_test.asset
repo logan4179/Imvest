@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291eaba1f4431c34eb09fbaf3c3adb28, type: 3}
+  m_Name: prompts_test
+  m_EditorClassIdentifier: 
+  prompts:
+  - MyOperation: 0
+    OperandA: 1
+    OperandB: 2
+    formattedQuestion: 1 + 2 =
+    correctAnswer: 3
+    incorrectAnswerA: 152
+    incorrectAnswerB: 147
+  - MyOperation: 0
+    OperandA: 2
+    OperandB: 3
+    formattedQuestion: 2 + 3 =
+    correctAnswer: 5
+    incorrectAnswerA: 96
+    incorrectAnswerB: 97
+  - MyOperation: 0
+    OperandA: 3
+    OperandB: 4
+    formattedQuestion: 3 + 4 =
+    correctAnswer: 7
+    incorrectAnswerA: 96
+    incorrectAnswerB: 97
+  - MyOperation: 0
+    OperandA: 4
+    OperandB: 5
+    formattedQuestion: 4 + 5 =
+    correctAnswer: 9
+    incorrectAnswerA: 96
+    incorrectAnswerB: 97
+  - MyOperation: 0
+    OperandA: 5
+    OperandB: 6
+    formattedQuestion: 5 + 6 =
+    correctAnswer: 11
+    incorrectAnswerA: 96
+    incorrectAnswerB: 97
+  - MyOperation: 0
+    OperandA: 6
+    OperandB: 7
+    formattedQuestion: 6 + 7 =
+    correctAnswer: 13
+    incorrectAnswerA: 96
+    incorrectAnswerB: 97
+  - MyOperation: 1
+    OperandA: 7
+    OperandB: 8
+    formattedQuestion: 7 + 8 =
+    correctAnswer: 15
+    incorrectAnswerA: 96
+    incorrectAnswerB: 97
+  - MyOperation: 1
+    OperandA: 8
+    OperandB: 9
+    formattedQuestion: 8 + 9 =
+    correctAnswer: 17
+    incorrectAnswerA: 96
+    incorrectAnswerB: 97
+  muhString: stranga

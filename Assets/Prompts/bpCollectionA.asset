@@ -1,0 +1,415 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f05690580738cb4aaf847db9a8d5120, type: 3}
+  m_Name: bpCollectionA
+  m_EditorClassIdentifier: 
+  prompts:
+  - formattedQuestion: 8 + 3 = 22
+    answer: 0
+  - formattedQuestion: 18 - 10 = 8
+    answer: 1
+  - formattedQuestion: 14 + 7 = 21
+    answer: 1
+  - formattedQuestion: 1 + 6 = 14
+    answer: 0
+  - formattedQuestion: 5 + 8 = 13
+    answer: 1
+  - formattedQuestion: 25 + 5 = 26
+    answer: 0
+  - formattedQuestion: 6 + 10 = 16
+    answer: 1
+  - formattedQuestion: 17 + 6 = 31
+    answer: 0
+  - formattedQuestion: 35 - 70 = -35
+    answer: 1
+  - formattedQuestion: 25 - 50 = -25
+    answer: 1
+  - formattedQuestion: 9 + 1 = 6
+    answer: 0
+  - formattedQuestion: 10 - 16 = 5
+    answer: 0
+  - formattedQuestion: 5 + 4 = 15
+    answer: 0
+  - formattedQuestion: ' 8 + 7 = 15'
+    answer: 1
+  - formattedQuestion: ' 10 + 9 = 19'
+    answer: 1
+  - formattedQuestion: ' 21 + 7 = 28'
+    answer: 1
+  - formattedQuestion: ' 13 - 5 = 2'
+    answer: 0
+  - formattedQuestion: ' 19 + 7 = 15'
+    answer: 0
+  - formattedQuestion: ' 20 - 12 = 20'
+    answer: 0
+  - formattedQuestion: ' 13 + 2 = 15'
+    answer: 1
+  - formattedQuestion: ' 14 - 30 = -16'
+    answer: 1
+  - formattedQuestion: ' 8 + 12 = 20'
+    answer: 1
+  - formattedQuestion: ' 12 + 9 = 14'
+    answer: 0
+  - formattedQuestion: ' 27 - 15 = 12'
+    answer: 1
+  - formattedQuestion: ' 3 + 5 = -1'
+    answer: 0
+  - formattedQuestion: ' 12 - 20 = -6'
+    answer: 0
+  - formattedQuestion: ' 21 - 9 = 8'
+    answer: 0
+  - formattedQuestion: ' 10 - 1 = 9'
+    answer: 1
+  - formattedQuestion: ' 16 - 9 = 7'
+    answer: 1
+  - formattedQuestion: ' 20 - 24 = -13'
+    answer: 0
+  - formattedQuestion: ' 6 - 9 = -15'
+    answer: 0
+  - formattedQuestion: ' 16 - 8 = 16'
+    answer: 0
+  - formattedQuestion: ' 17 - 9 = 8'
+    answer: 1
+  - formattedQuestion: ' 7 + 2 = -3'
+    answer: 0
+  - formattedQuestion: ' 16 + 7 = 26'
+    answer: 0
+  - formattedQuestion: ' 5 + 3 = 10'
+    answer: 0
+  - formattedQuestion: ' 15 - 7 = 4'
+    answer: 0
+  - formattedQuestion: ' 22 - 40 = -18'
+    answer: 1
+  - formattedQuestion: ' 12 + 5 = 25'
+    answer: 0
+  - formattedQuestion: ' 10 + 7 = 17'
+    answer: 1
+  - formattedQuestion: ' 15 - 30 = -15'
+    answer: 1
+  - formattedQuestion: ' 12 - 11 = 1'
+    answer: 1
+  - formattedQuestion: ' 14 - 6 = 6'
+    answer: 0
+  - formattedQuestion: ' 15 + 10 = 25'
+    answer: 1
+  - formattedQuestion: ' 24 - 12 = 12'
+    answer: 1
+  - formattedQuestion: ' 8 + 16 = 30'
+    answer: 0
+  - formattedQuestion: ' 24 - 30 = -14'
+    answer: 0
+  - formattedQuestion: ' 22 + 5 = 27'
+    answer: 1
+  - formattedQuestion: ' 30 - 45 = -12'
+    answer: 0
+  - formattedQuestion: ' 3 + 6 = -4'
+    answer: 0
+  - formattedQuestion: ' 7 - 10 = 1'
+    answer: 0
+  - formattedQuestion: ' 12 - 25 = -13'
+    answer: 1
+  - formattedQuestion: ' 4 + 5 = 20'
+    answer: 0
+  - formattedQuestion: ' 14 + 8 = 34'
+    answer: 0
+  - formattedQuestion: ' 20 + 3 = 23'
+    answer: 1
+  - formattedQuestion: ' 17 + 2 = 19'
+    answer: 1
+  - formattedQuestion: ' 2 + 7 = 7'
+    answer: 0
+  - formattedQuestion: ' 9 - 5 = 4'
+    answer: 1
+  - formattedQuestion: ' 11 + 13 = 22'
+    answer: 0
+  - formattedQuestion: ' 22 - 27 = 2'
+    answer: 0
+  - formattedQuestion: ' 22 - 11 = 20'
+    answer: 0
+  - formattedQuestion: ' 18 - 7 = 11'
+    answer: 1
+  - formattedQuestion: ' 13 - 4 = 9'
+    answer: 1
+  - formattedQuestion: ' 12 + 7 = 19'
+    answer: 1
+  - formattedQuestion: ' 5 + 6 = 11'
+    answer: 1
+  - formattedQuestion: ' 15 - 8 = 7'
+    answer: 1
+  - formattedQuestion: ' 19 - 11 = 20'
+    answer: 0
+  - formattedQuestion: ' 8 - 5 = -3'
+    answer: 0
+  - formattedQuestion: ' 8 - 12 = 2'
+    answer: 0
+  - formattedQuestion: ' 9 - 6 = -10'
+    answer: 0
+  - formattedQuestion: ' 11 - 18 = 0'
+    answer: 0
+  - formattedQuestion: ' 9 + 15 = 37'
+    answer: 0
+  - formattedQuestion: ' 9 + 6 = 6'
+    answer: 0
+  - formattedQuestion: ' 11 - 2 = 9'
+    answer: 1
+  - formattedQuestion: ' 10 + 14 = 15'
+    answer: 0
+  - formattedQuestion: ' 4 + 7 = 11'
+    answer: 1
+  - formattedQuestion: ' 9 - 15 = -6'
+    answer: 1
+  - formattedQuestion: ' 6 + 1 = 4'
+    answer: 0
+  - formattedQuestion: ' 14 + 5 = 19'
+    answer: 1
+  - formattedQuestion: ' 29 - 6 = 34'
+    answer: 0
+  - formattedQuestion: ' 13 - 26 = -13'
+    answer: 1
+  - formattedQuestion: ' 14 + 6 = 20'
+    answer: 1
+  - formattedQuestion: ' 8 - 20 = -12'
+    answer: 1
+  - formattedQuestion: ' 10 - 15 = -5'
+    answer: 1
+  - formattedQuestion: ' 13 + 9 = 22'
+    answer: 1
+  - formattedQuestion: ' 15 + 4 = 32'
+    answer: 0
+  - formattedQuestion: ' 20 - 35 = -22'
+    answer: 0
+  - formattedQuestion: ' 7 - 18 = 2'
+    answer: 0
+  - formattedQuestion: ' 18 - 35 = -17'
+    answer: 1
+  - formattedQuestion: ' 9 - 14 = -8'
+    answer: 0
+  - formattedQuestion: ' 30 - 60 = -30'
+    answer: 1
+  - formattedQuestion: ' 11 + 6 = 17'
+    answer: 1
+  - formattedQuestion: ' 12 - 4 = 8'
+    answer: 1
+  - formattedQuestion: ' 18 + 9 = 27'
+    answer: 1
+  - formattedQuestion: ' 16 + 3 = 19'
+    answer: 1
+  - formattedQuestion: ' 13 + 8 = 21'
+    answer: 1
+  - formattedQuestion: ' 17 - 8 = 6'
+    answer: 0
+  - formattedQuestion: ' 11 + 4 = 15'
+    answer: 1
+  - formattedQuestion: ' 8 + 2 = 2'
+    answer: 0
+  - formattedQuestion: ' 12 + 8 = 20'
+    answer: 1
+  - formattedQuestion: ' 8 - 20 = -12'
+    answer: 1
+  - formattedQuestion: ' 24 - 12 = 12'
+    answer: 1
+  - formattedQuestion: ' 20 + 3 = 23'
+    answer: 1
+  - formattedQuestion: ' 4 + 5 = 20'
+    answer: 0
+  - formattedQuestion: ' 8 + 7 = 15'
+    answer: 1
+  - formattedQuestion: ' 8 + 16 = 30'
+    answer: 0
+  - formattedQuestion: ' 15 + 10 = 25'
+    answer: 1
+  - formattedQuestion: ' 22 - 27 = 2'
+    answer: 0
+  - formattedQuestion: ' 11 + 6 = 17'
+    answer: 1
+  - formattedQuestion: ' 18 - 35 = -17'
+    answer: 1
+  - formattedQuestion: ' 15 + 4 = 32'
+    answer: 0
+  - formattedQuestion: ' 27 - 15 = 12'
+    answer: 1
+  - formattedQuestion: ' 8 + 3 = 22'
+    answer: 0
+  - formattedQuestion: ' 25 - 50 = -25'
+    answer: 1
+  - formattedQuestion: ' 30 - 60 = -30'
+    answer: 1
+  - formattedQuestion: ' 20 - 24 = -13'
+    answer: 0
+  - formattedQuestion: ' 18 + 9 = 27'
+    answer: 1
+  - formattedQuestion: ' 10 + 9 = 19'
+    answer: 1
+  - formattedQuestion: ' 17 + 2 = 19'
+    answer: 1
+  - formattedQuestion: ' 10 - 1 = 9'
+    answer: 1
+  - formattedQuestion: ' 11 - 2 = 9'
+    answer: 1
+  - formattedQuestion: ' 20 - 12 = 20'
+    answer: 0
+  - formattedQuestion: ' 12 + 8 = 20'
+    answer: 1
+  - formattedQuestion: ' 14 - 30 = -16'
+    answer: 1
+  - formattedQuestion: ' 14 + 7 = 21'
+    answer: 1
+  - formattedQuestion: ' 13 - 4 = 9'
+    answer: 1
+  - formattedQuestion: ' 5 + 3 = 10'
+    answer: 0
+  - formattedQuestion: ' 13 - 26 = -13'
+    answer: 1
+  - formattedQuestion: ' 22 + 5 = 27'
+    answer: 1
+  - formattedQuestion: ' 10 - 15 = -5'
+    answer: 1
+  - formattedQuestion: ' 7 - 10 = 1'
+    answer: 0
+  - formattedQuestion: ' 9 + 15 = 37'
+    answer: 0
+  - formattedQuestion: ' 35 - 70 = -35'
+    answer: 1
+  - formattedQuestion: ' 12 + 9 = 14'
+    answer: 0
+  - formattedQuestion: ' 12 - 20 = -6'
+    answer: 0
+  - formattedQuestion: ' 8 + 12 = 20'
+    answer: 1
+  - formattedQuestion: ' 10 + 7 = 17'
+    answer: 1
+  - formattedQuestion: ' 6 + 10 = 16'
+    answer: 1
+  - formattedQuestion: ' 15 - 7 = 4'
+    answer: 0
+  - formattedQuestion: ' 18 - 7 = 11'
+    answer: 1
+  - formattedQuestion: ' 22 - 11 = 20'
+    answer: 0
+  - formattedQuestion: ' 12 - 4 = 8'
+    answer: 1
+  - formattedQuestion: ' 14 + 8 = 34'
+    answer: 0
+  - formattedQuestion: ' 9 + 6 = 6'
+    answer: 0
+  - formattedQuestion: ' 14 - 6 = 6'
+    answer: 0
+  - formattedQuestion: ' 20 - 35 = -22'
+    answer: 0
+  - formattedQuestion: ' 5 + 4 = 15'
+    answer: 0
+  - formattedQuestion: ' 14 + 5 = 19'
+    answer: 1
+  - formattedQuestion: ' 4 + 7 = 11'
+    answer: 1
+  - formattedQuestion: ' 13 + 2 = 15'
+    answer: 1
+  - formattedQuestion: ' 16 + 7 = 26'
+    answer: 0
+  - formattedQuestion: ' 12 - 25 = -13'
+    answer: 1
+  - formattedQuestion: ' 12 + 7 = 19'
+    answer: 1
+  - formattedQuestion: ' 21 - 9 = 8'
+    answer: 0
+  - formattedQuestion: ' 15 - 30 = -15'
+    answer: 1
+  - formattedQuestion: ' 9 - 14 = -8'
+    answer: 0
+  - formattedQuestion: ' 5 + 6 = 11'
+    answer: 1
+  - formattedQuestion: ' 17 + 6 = 31'
+    answer: 0
+  - formattedQuestion: ' 13 + 8 = 21'
+    answer: 1
+  - formattedQuestion: ' 12 + 5 = 25'
+    answer: 0
+  - formattedQuestion: ' 11 + 13 = 22'
+    answer: 0
+  - formattedQuestion: ' 1 + 6 = 14'
+    answer: 0
+  - formattedQuestion: ' 12 - 11 = 1'
+    answer: 1
+  - formattedQuestion: ' 30 - 45 = -12'
+    answer: 0
+  - formattedQuestion: ' 25 + 5 = 26'
+    answer: 0
+  - formattedQuestion: ' 21 + 7 = 28'
+    answer: 1
+  - formattedQuestion: ' 17 - 8 = 6'
+    answer: 0
+  - formattedQuestion: ' 22 - 40 = -18'
+    answer: 1
+  - formattedQuestion: ' 10 + 14 = 15'
+    answer: 0
+  - formattedQuestion: ' 9 - 15 = -6'
+    answer: 1
+  - formattedQuestion: ' 3 + 6 = -4'
+    answer: 0
+  - formattedQuestion: ' 19 + 7 = 15'
+    answer: 0
+  - formattedQuestion: ' 14 + 6 = 20'
+    answer: 1
+  - formattedQuestion: ' 11 + 4 = 15'
+    answer: 1
+  - formattedQuestion: ' 17 - 9 = 8'
+    answer: 1
+  - formattedQuestion: ' 5 + 8 = 13'
+    answer: 1
+  - formattedQuestion: ' 11 - 18 = 0'
+    answer: 0
+  - formattedQuestion: ' 15 - 8 = 7'
+    answer: 1
+  - formattedQuestion: ' 18 - 10 = 8'
+    answer: 1
+  - formattedQuestion: ' 24 - 30 = -14'
+    answer: 0
+  - formattedQuestion: ' 6 + 1 = 4'
+    answer: 0
+  - formattedQuestion: ' 13 + 9 = 22'
+    answer: 1
+  - formattedQuestion: ' 7 - 18 = 2'
+    answer: 0
+  - formattedQuestion: ' 7 + 2 = -3'
+    answer: 0
+  - formattedQuestion: ' 16 + 3 = 19'
+    answer: 1
+  - formattedQuestion: ' 19 - 11 = 20'
+    answer: 0
+  - formattedQuestion: ' 9 + 1 = 6'
+    answer: 0
+  - formattedQuestion: ' 16 - 9 = 7'
+    answer: 1
+  - formattedQuestion: ' 10 - 16 = 5'
+    answer: 0
+  - formattedQuestion: ' 16 - 8 = 16'
+    answer: 0
+  - formattedQuestion: ' 29 - 6 = 34'
+    answer: 0
+  - formattedQuestion: ' 9 - 6 = -10'
+    answer: 0
+  - formattedQuestion: ' 8 + 2 = 2'
+    answer: 0
+  - formattedQuestion: ' 8 - 12 = 2'
+    answer: 0
+  - formattedQuestion: ' 2 + 7 = 7'
+    answer: 0
+  - formattedQuestion: ' 9 - 5 = 4'
+    answer: 1
+  - formattedQuestion: ' 13 - 5 = 2'
+    answer: 0
+  - formattedQuestion: ' 3 + 5 = -1'
+    answer: 0
+  - formattedQuestion: ' 6 - 9 = -15'
+    answer: 0
+  - formattedQuestion: ' 8 - 5 = -3'
+    answer: 0

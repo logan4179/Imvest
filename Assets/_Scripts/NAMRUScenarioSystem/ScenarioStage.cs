@@ -27,10 +27,8 @@ namespace NAMRUScenarioSystem
         [Space(5)]
 
         [Header("[---- ALARM ----]")]
-        public AdvancedAlarm MyAlarm;
-
         public AdvancedAlarm[] MyAlarms;
-        private int index_currentAlarm = 0;
+        public int index_currentAlarm = 0;
         public int Index_currentAlarm => index_currentAlarm;
         public AdvancedAlarm CurrentAlarm => MyAlarms[index_currentAlarm];
 
@@ -51,15 +49,20 @@ namespace NAMRUScenarioSystem
 
         public void CheckIfKosher()
         {
-            if ( MyAlarm.Event_OnAlarmEnd.GetPersistentEventCount() > 0 && MyAlarm.Duration == 0 )
-
+            if ( MyAlarms != null && MyAlarms.Length > 0 )
             {
-                string errorString = $"NSS WARNING! Alarm for Stage '{_description}' has a subscriber, but no duration set. " +
-                $"Was this intentional?";
+                for ( int i = 0; i < MyAlarms.Length; i++ )
+                {
+                    if( MyAlarms[i].Event_OnAlarmEnd.GetPersistentEventCount() > 0 && MyAlarms[i].Duration == 0 )
+                    {
+                        string errorString = $"NSS WARNING! Alarm {i} for Stage '{_description}' has a subscriber, but no duration set. " +
+                            $"Was this intentional?";
 
-                Debug.LogWarning(errorString);
+                        Debug.LogWarning( errorString );
 
-                _mgr.Event_Warning.Invoke(errorString);
+                        _mgr.Event_Warning.Invoke(errorString);
+                    }
+                }
             }
 
             if ( GOs_ActivateOnStart != null && GOs_ActivateOnStart.Count > 0 )
@@ -86,11 +89,6 @@ namespace NAMRUScenarioSystem
                 {
                     gOb.SetActive(true);
                 }
-            }
-
-            if ( MyAlarm.Duration > 0 )
-            {
-                MyAlarm.Reset();
             }
 
             index_currentAlarm = 0;
@@ -128,19 +126,6 @@ namespace NAMRUScenarioSystem
                 }
             }
 
-            
-            if ( MyAlarm.Duration > 0 )
-            {
-                if( MyAlarm.MoveTowardGoal(timeDelta) )
-                {
-                    //Event_AlarmEnd.Invoke();
-                    MyAlarm.Event_OnAlarmEnd.Invoke();
-                    MyAlarm.Reset();
-                }
-            }
-            
-
-            /*
             if ( MyAlarms != null && MyAlarms.Length > 0 )
             {
                 if( MyAlarms[index_currentAlarm].MoveTowardGoal(timeDelta) )
@@ -154,7 +139,6 @@ namespace NAMRUScenarioSystem
                     }
                 }
             }
-            */
         }
 
         public void EndStage()
@@ -169,8 +153,14 @@ namespace NAMRUScenarioSystem
 
         public string GetDiagnosticString()
         {
-            string s = "";
+            string s = $"Current Stage: '{_description}'\n";
+            if ( MyAlarms != null && MyAlarms.Length > 0 )
+            {
+                s += $"alarm[{Index_currentAlarm}]: " +
+                    $"'{CurrentAlarm.CurrentValue.ToString("#.##")} / " +
+                    $"{CurrentAlarm.Duration}\n";
 
+            }
 
             return s;
         }

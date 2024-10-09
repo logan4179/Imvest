@@ -280,7 +280,7 @@ Transform:
   m_GameObject: {fileID: 930269841929669394}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.15, y: 0, z: -2.24}
+  m_LocalPosition: {x: -1.15, y: 1.9200001, z: -2.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -298,8 +298,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.93207544, g: 0.5442607, b: 0.06155202, a: 1}
-  m_Intensity: 1924.1832
-  m_Range: 9.3
+  m_Intensity: 24.211693
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -360,7 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 24180
+  m_Intensity: 304.2531
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -1041,7 +1041,7 @@ Transform:
   m_GameObject: {fileID: 3031234514417847720}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 6.12}
+  m_LocalPosition: {x: 0, y: 1.92, z: 6.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1059,8 +1059,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.93207544, g: 0.5442607, b: 0.06155202, a: 1}
-  m_Intensity: 1924.1832
-  m_Range: 9.3
+  m_Intensity: 24.211693
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -1121,7 +1121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 24180
+  m_Intensity: 304.2531
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -1295,7 +1295,7 @@ Transform:
   m_GameObject: {fileID: 4592069247536601445}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.7, y: 0, z: 0.6}
+  m_LocalPosition: {x: 7.7, y: 1.9200001, z: 0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1313,8 +1313,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.93207544, g: 0.5442607, b: 0.06155202, a: 1}
-  m_Intensity: 1924.1832
-  m_Range: 9.3
+  m_Intensity: 24.211693
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -1375,7 +1375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 24180
+  m_Intensity: 304.2531
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -1729,7 +1729,7 @@ Transform:
   m_GameObject: {fileID: 4825269260208567709}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.36, y: 0, z: 5.43}
+  m_LocalPosition: {x: 4.36, y: 1.9200001, z: 5.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1747,8 +1747,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.93207544, g: 0.5442607, b: 0.06155202, a: 1}
-  m_Intensity: 1924.1832
-  m_Range: 9.3
+  m_Intensity: 24.211693
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -1809,7 +1809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 24180
+  m_Intensity: 304.2531
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -1946,7 +1946,7 @@ Transform:
   m_GameObject: {fileID: 5079799922613062318}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.06, y: 0, z: 0.6}
+  m_LocalPosition: {x: -7.06, y: 1.9200001, z: 0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1964,8 +1964,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.93207544, g: 0.5442607, b: 0.06155202, a: 1}
-  m_Intensity: 1924.1832
-  m_Range: 9.3
+  m_Intensity: 24.211693
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -2026,7 +2026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 24180
+  m_Intensity: 304.2531
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -2380,7 +2380,7 @@ Transform:
   m_GameObject: {fileID: 5434308355858256297}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.46, z: 0}
+  m_LocalPosition: {x: 0, y: -0.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2395,11 +2395,11 @@ Light:
   m_GameObject: {fileID: 5434308355858256297}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 2
+  m_Type: 4
   m_Shape: 0
   m_Color: {r: 0.7584905, g: 0.5260181, b: 0.26761833, a: 1}
-  m_Intensity: 39.411465
-  m_Range: 10
+  m_Intensity: 2.227672
+  m_Range: 8.1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -2437,14 +2437,14 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 2
-  m_AreaSize: {x: 18.820131, y: 19.311562}
+  m_AreaSize: {x: 10, y: 19.311562}
   m_BounceIntensity: 1
   m_ColorTemperature: 2502
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 13.482709}
-  m_UseBoundingSphereOverride: 1
+  m_BoundingSphereOverride: {x: 4.5905e-41, y: 6e-44, z: 5.5e-44, w: 1.8469e-41}
+  m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2460,7 +2460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 45000
+  m_Intensity: 2151.4453
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -2473,7 +2473,7 @@ MonoBehaviour:
   m_AffectDiffuse: 1
   m_AffectSpecular: 1
   m_NonLightmappedOnly: 0
-  m_ShapeWidth: 18.820131
+  m_ShapeWidth: 9.892126
   m_ShapeHeight: 19.311562
   m_AspectRatio: 1
   m_ShapeRadius: 0.025
@@ -2569,7 +2569,7 @@ MonoBehaviour:
   m_ObsoleteContactShadows: 0
   m_PointlightHDType: 1
   m_SpotLightShape: 0
-  m_AreaLightShape: 0
+  m_AreaLightShape: 2
 --- !u!1 &5953160452424155305
 GameObject:
   m_ObjectHideFlags: 0
@@ -3230,7 +3230,7 @@ Transform:
   m_GameObject: {fileID: 7935026671355763471}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -7.4799995, z: 0}
+  m_LocalPosition: {x: 0, y: -7.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3271,7 +3271,7 @@ Transform:
   m_GameObject: {fileID: 8154283117861498705}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.21, y: 0, z: -4.3}
+  m_LocalPosition: {x: 5.21, y: 1.9200001, z: -4.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3289,8 +3289,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.93207544, g: 0.5442607, b: 0.06155202, a: 1}
-  m_Intensity: 1924.1832
-  m_Range: 9.3
+  m_Intensity: 24.211693
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -3351,7 +3351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 24180
+  m_Intensity: 304.2531
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -3488,7 +3488,7 @@ Transform:
   m_GameObject: {fileID: 8478701729948252370}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.55, y: 0, z: -7.82}
+  m_LocalPosition: {x: -0.55, y: 1.9200001, z: -7.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3506,8 +3506,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.93207544, g: 0.5442607, b: 0.06155202, a: 1}
-  m_Intensity: 1924.1832
-  m_Range: 9.3
+  m_Intensity: 24.211693
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -3568,7 +3568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 24180
+  m_Intensity: 304.2531
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -4020,7 +4020,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multisystemEffectHandler: {fileID: 3358248213324226055}
-  meshRenderer: {fileID: 0}
   _boxCollider: {fileID: 0}
 --- !u!1001 &831227106611140622
 PrefabInstance:
@@ -4162,7 +4161,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multisystemEffectHandler: {fileID: 4281620323326296414}
-  meshRenderer: {fileID: 0}
   _boxCollider: {fileID: 0}
 --- !u!4 &865717914467500005 stripped
 Transform:
@@ -4358,7 +4356,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1b97437562c09884f9fb1c404141416c, type: 2}
+      objectReference: {fileID: 2100000, guid: 3bb9ef1e0a10f1b49afdbe2b5855d069, type: 2}
     - target: {fileID: 919132149155446097, guid: 27a40f5b2cd43a54c8a44a835e567983,
         type: 3}
       propertyPath: m_Name
@@ -4595,7 +4593,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multisystemEffectHandler: {fileID: 7515506499568020267}
-  meshRenderer: {fileID: 0}
   _boxCollider: {fileID: 0}
 --- !u!1001 &4726074268646965922
 PrefabInstance:
@@ -5208,7 +5205,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multisystemEffectHandler: {fileID: 5592296278805988050}
-  meshRenderer: {fileID: 0}
   _boxCollider: {fileID: 7603312765962583859}
 --- !u!65 &7603312765962583859
 BoxCollider:
@@ -5362,7 +5358,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multisystemEffectHandler: {fileID: 2102757414208391051}
-  meshRenderer: {fileID: 0}
   _boxCollider: {fileID: 0}
 --- !u!1001 &7224252533139628418
 PrefabInstance:
@@ -5495,7 +5490,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multisystemEffectHandler: {fileID: 3073798480864663227}
-  meshRenderer: {fileID: 0}
   _boxCollider: {fileID: 0}
 --- !u!1001 &8507385823576331154
 PrefabInstance:

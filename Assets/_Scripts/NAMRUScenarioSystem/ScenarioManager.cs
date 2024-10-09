@@ -106,6 +106,7 @@ namespace NAMRUScenarioSystem
             }
         }
 
+        /*
         //Note, I used this when I went from a single alarm to an array of alarms. It helped me transfer the original 
         // alarm data to the first entry in the new list. Even the event stuff was succesfully transfered!
         // Leaving it here in case I want to do something like this again in the future.
@@ -132,6 +133,7 @@ namespace NAMRUScenarioSystem
                 }
             }
         }
+        */
 
         /// <summary>
         /// Call this when you want the ScenarioDuration float to start counting.
@@ -214,22 +216,9 @@ namespace NAMRUScenarioSystem
 
             if ( index_currentStage < Stages.Length && index_currentStage >= 0 )
             {
-                s = $"Current Stage: {CurrentStage._description}, ({index_currentStage})\n";
+                s =  $"{nameof(runningSessionDuration)}: '{runningSessionDuration}' / {SessionDuration}\n";
 
-                /*
-                if ( CurrentStage.MyAlarm.Duration > 0 )
-                {
-                    s += $"Alarm: {CurrentStage.MyAlarm.CurrentValue.ToString("#.##")} / {CurrentStage.MyAlarm.Duration}\n";
-                }
-                */
-
-                if( CurrentStage.MyAlarms != null && CurrentStage.MyAlarms.Length > 0 )
-                {
-                    s += $"alarm index: '{CurrentStage.Index_currentAlarm}'\n" +
-                        $"alarm count: '{CurrentStage.CurrentAlarm.CurrentValue.ToString("#.##")} / " +
-                        $"{CurrentStage.CurrentAlarm.Duration}\n";
-                    
-                }
+                s += CurrentStage.GetDiagnosticString();
             }
             else
             {

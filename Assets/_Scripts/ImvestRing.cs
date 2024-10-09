@@ -6,7 +6,7 @@ using NamruSessionManagementSystem;
 public class ImvestRing : NSMS_Object
 {
     [SerializeField] private MultisystemEffectHandler multisystemEffectHandler;
-    [SerializeField] private MeshRenderer meshRenderer;
+    private MeshRenderer meshRenderer;
     Animator animator;
     [SerializeField] private BoxCollider _boxCollider;
 
@@ -14,7 +14,7 @@ public class ImvestRing : NSMS_Object
     {
         LogInc("Awake");
         meshRenderer = GetComponent<MeshRenderer>();
-
+        _boxCollider = GetComponent<BoxCollider>();
         animator = GetComponent<Animator>();
 
         NamruLogManager.DecrementTabLevel();
@@ -22,7 +22,11 @@ public class ImvestRing : NSMS_Object
 
     void Start()
     {
-        
+        if( _boxCollider != null )
+        {
+            _boxCollider.enabled = false;
+            _boxCollider.enabled = true;
+        }
     }
 
     public void ResetMe()

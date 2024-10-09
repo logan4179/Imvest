@@ -41,9 +41,8 @@ namespace NewWay
         [Header("[---- AUDIO ----]")]
         [SerializeField] private AudioClip explosionClip;
 
-        [Header("[---- STATS ----]")]
+        //[Header("[---- STATS ----]")]
         [Tooltip("Length, in seconds, of an entire session.")]
-        private float duration_entireSession = 120f;
         public static float AnswerPercentageThreshold_presentedAsAverage = 0.62f;
 
         [Header("[---- SCENARIO ----]")]
@@ -98,7 +97,7 @@ namespace NewWay
         /// <summary>
         /// Gets marked true during end of the prompt feedback stage so that at the end of the explosion stage, it can then know to go to the beratement stage
         /// </summary>
-        private bool flag_needToGoToBeratementStage = false;
+        private bool flag_dueForBeratement = false;
 
         [Header("[---- OTHER ----]")]
         [HideInInspector] public int index_currentPrompt = 0;
@@ -308,7 +307,6 @@ namespace NewWay
             CorrectAnswerPercentage_presented = ( (float)(runningNumberOfPromptsCorrect - runningNumberOfFalseNegatives) / (float)runningNumberOPromptsPresented );
 
             #region CALCULATE THE NEXT PROMPT DURATION----------------
-            //float newCalculatedDuration = ScenarioManager.Instance.Stages[ScenarioIndex_SolvingPrompt].MyAlarm.Duration;
             float newCalculatedDuration = ScenarioManager.Instance.Stages[ScenarioIndex_SolvingPrompt].CurrentAlarm.Duration;
 
             if ( flag_lastParticipantSelectionWasCorrect && CorrectAnswerPercentage_presented > 0.6f )
@@ -319,8 +317,8 @@ namespace NewWay
             {
                 newCalculatedDuration += 0.06f;
             }
-            //ScenarioManager.Instance.Stages[ScenarioIndex_SolvingPrompt].MyAlarm.Duration = Mathf.Clamp( newCalculatedDuration, 1f, 3f );
-            //ScenarioManager.Instance.Stages[ScenarioIndex_SolvingPrompt].CurrentAlarm.Duration = Mathf.Clamp(newCalculatedDuration, 1f, 3f);
+
+            ScenarioManager.Instance.Stages[ScenarioIndex_SolvingPrompt].MyAlarms[0].Duration = Mathf.Clamp(newCalculatedDuration, 1f, 3f);
 
             Log( $"{nameof(newCalculatedDuration)}: '{newCalculatedDuration}'" );
 
@@ -352,13 +350,13 @@ namespace NewWay
                 if( index_currentBlock < blockTimings.Length && ScenarioManager.Instance.RunningSessionDuration > blockTimings[index_currentBlock] )
                 {
                     index_currentBlock++;
-                    Log( $"reached new block '{index_currentBlock}'", LogDestination.Console );
-                    flag_needToGoToBeratementStage = true;
+                    Log( $"reached new block '{index_currentBlock}'------------------ ", LogDestination.Console );
+                    flag_dueForBeratement = true;
                 }
 
                 if ( flag_lastFeedbackGivenToParticpant )
                 {
-                    if ( flag_needToGoToBeratementStage )
+                    if ( flag_dueForBeratement )
                     {
                         ScenarioManager.Instance.GoToOrderedStage( ScenarioIndex_Berating );
 
@@ -384,7 +382,6 @@ namespace NewWay
             try
             {
                 RingScripts[Index_currentRing].Explode();
-                //RingObjects[Index_currentRing].SetActive( false );
                 AudioSource.PlayClipAtPoint(explosionClip, rb_player.position, 0.5f);
 
                 Index_currentRing++;
@@ -397,33 +394,53 @@ namespace NewWay
             NamruLogManager.DecrementTabLevel();
         }
 
-        public void AlarmEndAction_RingIsExploding()
+        public void AlarmEndAction_RingIsExploding1()
         {
-            LogInc( $"{nameof(AlarmEndAction_RingIsExploding)}(). {nameof(ScenarioManager.Instance._SessionState)}: '{ScenarioManager.Instance._SessionState}'. {nameof(Index_currentRing)}: '{Index_currentRing}'" );
+            LogInc($"{nameof(AlarmEndAction_RingIsExploding1)}(). {nameof(ScenarioManager.Instance._SessionState)}: '{ScenarioManager.Instance._SessionState}'. {nameof(Index_currentRing)}: '{Index_currentRing}'");
 
             try
             {
-                if( ScenarioManager.Instance._SessionState == NAMRUScenarioSystem.SessionState.Started ) //todo: is this right?
+                if (ScenarioManager.Instance._SessionState == NAMRUScenarioSystem.SessionState.Ended)
                 {
-                    if ( flag_needToGoToBeratementStage )
-                    {
-                        ScenarioManager.Instance.GoToOrderedStage( ScenarioIndex_Berating );
-                        flag_needToGoToBeratementStage = false;
-                    }
-                    else
-                    {
-                        ScenarioManager.Instance.GoToOrderedStage( ScenarioIndex_SolvingPrompt );
-                    }
+                    ScenarioManager.Instance.GoToOrderedStage(ScenarioIndex_Finished);
+                }
+                else if ( Index_currentRing >= RingObjects.Length )
+                {
+                    ScenarioManager.Instance.GoToOrderedStage(ScenarioIndex_Falling);
+                }
+            }
+            catch (System.Exception e)
+            {
+                NamruLogManager.LogException(e);
+            }
+
+            NamruLogManager.DecrementTabLevel();
+        }
+
+        public void AlarmEndAction_RingIsExploding2()
+        {
+            LogInc( $"{nameof(AlarmEndAction_RingIsExploding2)}(). {nameof(ScenarioManager.Instance._SessionState)}: '{ScenarioManager.Instance._SessionState}'. {nameof(Index_currentRing)}: '{Index_currentRing}'" );
+
+            try
+            {
+                if ( ScenarioManager.Instance._SessionState == NAMRUScenarioSystem.SessionState.Ended )
+                {
+                    ScenarioManager.Instance.GoToOrderedStage(ScenarioIndex_Finished);
                 }
                 else
                 {
-                    if ( Index_currentRing >= RingObjects.Length )
+                    if ( flag_dueForBeratement )
                     {
-                        ScenarioManager.Instance.GoToOrderedStage( ScenarioIndex_Falling );
+                        ScenarioManager.Instance.GoToOrderedStage(ScenarioIndex_Berating);
+                        flag_dueForBeratement = false;
+                    }
+                    else if (Index_currentRing >= RingObjects.Length)
+                    {
+                        ScenarioManager.Instance.GoToOrderedStage(ScenarioIndex_Falling);
                     }
                     else
                     {
-                        ScenarioManager.Instance.GoToOrderedStage( ScenarioIndex_Finished );
+                        ScenarioManager.Instance.GoToOrderedStage(ScenarioIndex_SolvingPrompt);
                     }
                 }
             }
@@ -448,7 +465,7 @@ namespace NewWay
         public void AlarmEndAction_beratingStage()
         {
             LogInc( $"{nameof(AlarmEndAction_beratingStage)}(). {nameof(Index_currentRing)}: '{Index_currentRing}'" );
-            flag_needToGoToBeratementStage = false;
+            flag_dueForBeratement = false;
 
             if ( Index_currentRing >= RingObjects.Length )
             {

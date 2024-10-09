@@ -114,32 +114,6 @@ namespace NewWay
                 txt_prompt.text = GameManager_new.Instance._PromptCollection.prompts[GameManager_new.Instance.index_currentPrompt].formattedQuestion;
 
                 EventSystem.current.SetSelectedGameObject( lastSelectedOption == true ? btn_true.gameObject : btn_false.gameObject );
-
-                //OLD------------------------------------
-                /*
-                txt_prompt.text = GameManager_new.Instance._PromptCollection.prompts[GameManager_new.Instance.index_currentPrompt].formattedQuestion;
-
-                index_correctButton = Random.Range(0, btns_choices.Length - 1);
-                btns_choices_txts[index_correctButton].text = GameManager_new.Instance.CurrentPrompt.correctAnswer.ToString();
-
-                if (index_correctButton == 0)
-                {
-                    btns_choices_txts[1].text = GameManager_new.Instance.CurrentPrompt.incorrectAnswerA.ToString();
-                    btns_choices_txts[2].text = GameManager_new.Instance.CurrentPrompt.incorrectAnswerB.ToString();
-                }
-                else if (index_correctButton == 1)
-                {
-                    btns_choices_txts[0].text = GameManager_new.Instance.CurrentPrompt.incorrectAnswerA.ToString();
-                    btns_choices_txts[2].text = GameManager_new.Instance.CurrentPrompt.incorrectAnswerB.ToString();
-                }
-                else if (index_correctButton == 2)
-                {
-                    btns_choices_txts[0].text = GameManager_new.Instance.CurrentPrompt.incorrectAnswerA.ToString();
-                    btns_choices_txts[1].text = GameManager_new.Instance.CurrentPrompt.incorrectAnswerB.ToString();
-                }
-
-                EventSystem.current.SetSelectedGameObject(btns_choices[index_lastSelectedButton].gameObject);
-                */
             }
             catch ( System.Exception e )
             {
@@ -236,7 +210,6 @@ namespace NewWay
                 lastSelectedOption = true;
             }
 
-            //EventSystem.current.SetSelectedGameObject( btn_true.gameObject ); //note: not using the trigger for selection anymore.
             UI_ChoiceButton_action(lastSelectedOption);
 
         }
@@ -248,7 +221,6 @@ namespace NewWay
                 lastSelectedOption = false;
             }
 
-            //EventSystem.current.SetSelectedGameObject( btn_false.gameObject ); //note: not using the trigger for selection anymore.
             UI_ChoiceButton_action(lastSelectedOption);
 
         }

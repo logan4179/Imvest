@@ -34,20 +34,19 @@ namespace NewWay
 
         void Start()
         {
-            LogInc("Start()");
+            LogInc( "Start()" );
 
             CheckIfKosher();
 
-            if (!Application.isEditor)
+            if ( !Application.isEditor )
             {
-                group_debug.SetActive(false);
+                group_debug.SetActive( false );
             }
 
             txt_score.text = "Score: 0%";
 
             NamruLogManager.DecrementTabLevel();
         }
-
         
         void Update()
         {

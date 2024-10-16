@@ -46,6 +46,15 @@ namespace NAMRUScenarioSystem
         public float RunningSessionDuration => runningSessionDuration;
         public UnityEvent Event_SessionEnded;
 
+        [Header("[--- WAIT MECHANISM ---]")]
+        private Alarm waitAlarm;
+        /// <summary>
+        /// Stage to go to after waitAlarm counts down.
+        /// </summary>
+        private int index_StageAfterWait;
+        private bool flag_amInWait = false;
+        public bool Flag_AmInWait => flag_amInWait;
+
         /// <summary>
         /// Optional event for when a stage advance is requested within a stage advance. This would 
         /// typically be used to log an error to a custom console in the Unity app to let the user 
@@ -85,14 +94,14 @@ namespace NAMRUScenarioSystem
             flag_inStageAdvance = false;
 
             index_currentStage = -1; //This is so that GoToOrderedStage() will know it's being called from start()
-            GoToOrderedStage( 0 );
+            GoToStage( 0 );
         }
 
         public void Update()
         {
             if ( index_currentStage < Stages.Length )
             {
-                Stages[index_currentStage].UpdateMe(Time.deltaTime);
+                Stages[index_currentStage].UpdateMe( Time.deltaTime );
             }
 
             if ( _sessionState == SessionState.Started )
@@ -102,6 +111,17 @@ namespace NAMRUScenarioSystem
                 if ( runningSessionDuration >= SessionDuration )
                 {
                     EndSession();
+                }
+            }
+
+            flag_amInWait = false;
+            if ( waitAlarm.CurrentValue > 0 )
+            {
+                flag_amInWait = true;
+
+                if( waitAlarm.MoveTowardGoal(Time.deltaTime) )
+                {
+                    GoToStage( index_StageAfterWait );
                 }
             }
         }
@@ -171,18 +191,18 @@ namespace NAMRUScenarioSystem
                 return;
             }
 
-            GoToOrderedStage( index_currentStage + 1 );
+            GoToStage( index_currentStage + 1 );
         }
 
         /// <summary>
         /// Ends current stage and begins stage at supplied index.
         /// </summary>
         /// <param name="indx"></param>
-        public void GoToOrderedStage( int indx )
+        public void GoToStage( int indx )
         {
             if (flag_inStageAdvance)
             {
-                string errorString = $"NSS WARNING! {nameof(GoToOrderedStage)}() was called while the stage advancing flag " +
+                string errorString = $"NSS WARNING! {nameof(GoToStage)}() was called while the stage advancing flag " +
                     $"was true. This means that there is a problem in your logic causing a call to advance the " +
                     $"stage within another call to advance the stage. This could cause a stack-overflow/endless-loop. " +
                     $"Current stage: '{CurrentStage._description}' at index: '{index_currentStage}'. Requested index: '{indx}'. Returning early...";
@@ -210,6 +230,19 @@ namespace NAMRUScenarioSystem
             flag_inStageAdvance = false;
         }
 
+        /// <summary>
+        /// Ends current stage and begins stage at supplied index.
+        /// </summary>
+        /// <param name="indx"></param>
+        public void GoToStageAfterWait( int indx, float waitDuration )
+        {
+            Debug.Log("GoToStageAfterWait()");
+            waitAlarm.Duration = waitDuration;
+            waitAlarm.Reset();
+
+            index_StageAfterWait = indx;
+        }
+
         public string GetDiagnosticString()
         {
             string s = "";
@@ -226,7 +259,9 @@ namespace NAMRUScenarioSystem
             }
 
             s += $"{nameof(_sessionState)}: '{_sessionState}'\n" +
-                $"{nameof(runningSessionDuration)}: '{runningSessionDuration}' / {SessionDuration}";
+                $"{nameof(runningSessionDuration)}: '{runningSessionDuration}' / {SessionDuration}\n" +
+                $"{nameof(flag_amInWait)}: '{flag_amInWait}'\n" +
+                $"wait duration: '{waitAlarm.CurrentValue}' / {waitAlarm.Duration}";
 
             return s;
         }

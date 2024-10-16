@@ -113,6 +113,7 @@ namespace NewWay
 
         [Space(10f)]
         [SerializeField] private string DBG_stateHistory;
+        [SerializeField] private bool flag_allowKeyboardInput = false;
 
         [ContextMenu("z call TryInvoke()")]
         public void TryInvoke()
@@ -164,8 +165,11 @@ namespace NewWay
                     NamruLogManager.Log($"<color=red>{s}</color>", LogDestination.MomentaryDebugLogger);
                 });
 
-                #region STUFF ----------------
-                blockTimings = new float[3] { 30f, 60f, 90f};
+                #region BLOCK STUFF ----------------
+                float singleBlockDuration = ScenarioManager.Instance.SessionDuration / 4f;
+                Log($"{nameof(singleBlockDuration)} calculated as '{singleBlockDuration}'", LogDestination.Console );
+                blockTimings = new float[3] { singleBlockDuration, singleBlockDuration * 2, singleBlockDuration  * 3 };
+                Log($"blockTimings will be '{blockTimings[0]}', '{blockTimings[1]}', and '{blockTimings[2]}'", LogDestination.Console);
                 index_currentBlock = 0;
                 Log( $"{nameof(blockTimings)} length calculated as: '{blockTimings.Length}', " );
                 #endregion
@@ -185,7 +189,6 @@ namespace NewWay
 
         }
 
-        [SerializeField] private bool flag_allowKeyboardInput = false;
 
         void Update()
         {
@@ -193,36 +196,39 @@ namespace NewWay
             {
                 QuitApplication();
             }
-            else if ( ScenarioManager.Instance.Index_currentOrderedStage == ScenarioIndex_SolvingPrompt )
+            else if( !ScenarioManager.Instance.Flag_AmInWait )
             {
-                if ( flag_allowKeyboardInput )
+                if ( ScenarioManager.Instance.Index_currentOrderedStage == ScenarioIndex_SolvingPrompt )
                 {
-                    if ( Input.GetKeyUp(KeyCode.A) )
+                    if ( flag_allowKeyboardInput )
                     {
-                        InputLeft();
-                    }
-                    else if ( Input.GetKeyUp(KeyCode.D) )
-                    {
-                        InputRight();
+                        if ( Input.GetKeyUp(KeyCode.A) )
+                        {
+                            InputLeft();
+                        }
+                        else if ( Input.GetKeyUp(KeyCode.D) )
+                        {
+                            InputRight();
+                        }
                     }
                 }
-            }
-            else if ( ScenarioManager.Instance.Index_currentOrderedStage == ScenarioIndex_Falling )
-            {
-                if ( flag_playerNeedsRespawn && rb_player.position.y < -15 )
+                else if ( ScenarioManager.Instance.Index_currentOrderedStage == ScenarioIndex_Falling )
                 {
-                    rb_player.position = new Vector3( 0f, 25f, 0f );
-
-                    foreach ( ImvestRing ring in RingScripts )
+                    if ( flag_playerNeedsRespawn && rb_player.position.y < -15 )
                     {
-                        ring.ResetMe();
-                    }
+                        rb_player.position = new Vector3( 0f, 25f, 0f );
 
-                    flag_playerNeedsRespawn = false;
-                }
-                else if ( !flag_playerNeedsRespawn && rb_player.position.y <= 0.2f )
-                {
-                    ResetPlayerAndRingsAfterFall();
+                        foreach ( ImvestRing ring in RingScripts )
+                        {
+                            ring.ResetMe();
+                        }
+
+                        flag_playerNeedsRespawn = false;
+                    }
+                    else if ( !flag_playerNeedsRespawn && rb_player.position.y <= 0.2f )
+                    {
+                        ResetPlayerAndRingsAfterFall();
+                    }
                 }
             }
 
@@ -244,7 +250,7 @@ namespace NewWay
                 $"{nameof(runningNumberOfFalseNegatives)}: '{runningNumberOfFalseNegatives}'\n" +
                 $"{nameof(runningNumberOPromptsPresented)}: '{runningNumberOPromptsPresented}'\n" +
                 $"{nameof(correctAnswerPercentage)}: '{correctAnswerPercentage}'\n" +
-                $"{nameof(CorrectAnswerPercentage_presented)}: '{CorrectAnswerPercentage_presented}'\n" +
+                $"{nameof(CorrectAnswerPercentage_presented)}: '{CorrectAnswerPercentage_presented}'\n\n" +
 
                 $"";
 #endif
@@ -332,7 +338,7 @@ namespace NewWay
                 index_currentPrompt = 0;
             }
 
-            ScenarioManager.Instance.GoToOrderedStage( ScenarioIndex_PromptAnsweredFeedback );
+            ScenarioManager.Instance.GoToStage( ScenarioIndex_PromptAnsweredFeedback );
 
             NamruLogManager.DecrementTabLevel();
         }
@@ -343,7 +349,7 @@ namespace NewWay
 
             if ( ScenarioManager.Instance._SessionState == NAMRUScenarioSystem.SessionState.Ended )
             {
-                ScenarioManager.Instance.GoToOrderedStage(ScenarioIndex_Finished);
+                ScenarioManager.Instance.GoToStage(ScenarioIndex_Finished);
             }
             else
             {
@@ -358,17 +364,17 @@ namespace NewWay
                 {
                     if ( flag_dueForBeratement )
                     {
-                        ScenarioManager.Instance.GoToOrderedStage( ScenarioIndex_Berating );
+                        ScenarioManager.Instance.GoToStage( ScenarioIndex_Berating );
 
                     }
                     else
                     {
-                        ScenarioManager.Instance.GoToOrderedStage( ScenarioIndex_SolvingPrompt );
+                        ScenarioManager.Instance.GoToStage( ScenarioIndex_SolvingPrompt );
                     }
                 }
                 else
                 {
-                    ScenarioManager.Instance.GoToOrderedStage( ScenarioIndex_RingIsExploding );
+                    ScenarioManager.Instance.GoToStage( ScenarioIndex_RingIsExploding );
                 }
             }
 
@@ -400,13 +406,13 @@ namespace NewWay
 
             try
             {
-                if (ScenarioManager.Instance._SessionState == NAMRUScenarioSystem.SessionState.Ended)
+                if ( ScenarioManager.Instance._SessionState == NAMRUScenarioSystem.SessionState.Ended )
                 {
-                    ScenarioManager.Instance.GoToOrderedStage(ScenarioIndex_Finished);
+                    ScenarioManager.Instance.GoToStage( ScenarioIndex_Finished );
                 }
                 else if ( Index_currentRing >= RingObjects.Length )
                 {
-                    ScenarioManager.Instance.GoToOrderedStage(ScenarioIndex_Falling);
+                    ScenarioManager.Instance.GoToStage( ScenarioIndex_Falling );
                 }
             }
             catch (System.Exception e)
@@ -425,22 +431,22 @@ namespace NewWay
             {
                 if ( ScenarioManager.Instance._SessionState == NAMRUScenarioSystem.SessionState.Ended )
                 {
-                    ScenarioManager.Instance.GoToOrderedStage(ScenarioIndex_Finished);
+                    ScenarioManager.Instance.GoToStage(ScenarioIndex_Finished);
                 }
                 else
                 {
                     if ( flag_dueForBeratement )
                     {
-                        ScenarioManager.Instance.GoToOrderedStage(ScenarioIndex_Berating);
+                        ScenarioManager.Instance.GoToStage(ScenarioIndex_Berating);
                         flag_dueForBeratement = false;
                     }
                     else if (Index_currentRing >= RingObjects.Length)
                     {
-                        ScenarioManager.Instance.GoToOrderedStage(ScenarioIndex_Falling);
+                        ScenarioManager.Instance.GoToStage(ScenarioIndex_Falling);
                     }
                     else
                     {
-                        ScenarioManager.Instance.GoToOrderedStage(ScenarioIndex_SolvingPrompt);
+                        ScenarioManager.Instance.GoToStage(ScenarioIndex_SolvingPrompt);
                     }
                 }
             }
@@ -469,11 +475,11 @@ namespace NewWay
 
             if ( Index_currentRing >= RingObjects.Length )
             {
-                ScenarioManager.Instance.GoToOrderedStage( ScenarioIndex_Falling );
+                ScenarioManager.Instance.GoToStage( ScenarioIndex_Falling );
             }
             else
             {
-                ScenarioManager.Instance.GoToOrderedStage( ScenarioIndex_SolvingPrompt );
+                ScenarioManager.Instance.GoToStage( ScenarioIndex_SolvingPrompt );
             }
 
             NamruLogManager.DecrementTabLevel();
@@ -490,7 +496,7 @@ namespace NewWay
 
         public void ResetPlayerAndRingsAfterFall()
         {
-            LogInc($"{nameof(ResetPlayerAndRingsAfterFall)}().");
+            LogInc($"{nameof(ResetPlayerAndRingsAfterFall)}().", LogDestination.Console );
 
             rb_player.useGravity = false;
             rb_player.velocity = Vector3.zero;
@@ -505,11 +511,12 @@ namespace NewWay
 
             if ( ScenarioManager.Instance._SessionState == NAMRUScenarioSystem.SessionState.Ended )
             {
-                ScenarioManager.Instance.GoToOrderedStage( ScenarioIndex_Finished );
+                ScenarioManager.Instance.GoToStage( ScenarioIndex_Finished );
             }
             else
             {
-                ScenarioManager.Instance.GoToOrderedStage( ScenarioIndex_SolvingPrompt );
+                //ScenarioManager.Instance.GoToStage( ScenarioIndex_SolvingPrompt );
+                ScenarioManager.Instance.GoToStageAfterWait( ScenarioIndex_SolvingPrompt, 2.5f );
             }
 
             NamruLogManager.DecrementTabLevel();
@@ -524,6 +531,7 @@ namespace NewWay
             NamruLogManager.DecrementTabLevel();
         }
 
+        #region INPUT---------------------------------------------------
         public void InputTrigger()//note: not using the trigger for selection anymore. Instead, they want directional buttons to instantly select
         {
             if ( ScenarioManager.Instance.Index_currentOrderedStage != ScenarioIndex_SolvingPrompt )
@@ -553,6 +561,7 @@ namespace NewWay
 
             _inGameCanvasScript.InputRight();
         }
+        #endregion
 
         public bool CheckIfKosher()
         {

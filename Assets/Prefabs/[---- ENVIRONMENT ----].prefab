@@ -4320,12 +4320,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 27a40f5b2cd43a54c8a44a835e567983,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 27a40f5b2cd43a54c8a44a835e567983,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 27a40f5b2cd43a54c8a44a835e567983,
         type: 3}
@@ -4335,7 +4335,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 27a40f5b2cd43a54c8a44a835e567983,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 27a40f5b2cd43a54c8a44a835e567983,
         type: 3}
@@ -4356,7 +4356,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3bb9ef1e0a10f1b49afdbe2b5855d069, type: 2}
+      objectReference: {fileID: 2100000, guid: 1b97437562c09884f9fb1c404141416c, type: 2}
     - target: {fileID: 919132149155446097, guid: 27a40f5b2cd43a54c8a44a835e567983,
         type: 3}
       propertyPath: m_Name
@@ -4992,10 +4992,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 865717914467500005}
     m_Modifications:
+    - target: {fileID: 430130701497032570, guid: 422b4b8b4b7dc0040b07fe520c75bd53,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162172044507240897, guid: 422b4b8b4b7dc0040b07fe520c75bd53,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3452357289099352257, guid: 422b4b8b4b7dc0040b07fe520c75bd53,
         type: 3}
       propertyPath: m_Name
       value: vfx_ExplosionRing_viaSpriteSheet
+      objectReference: {fileID: 0}
+    - target: {fileID: 4186938698490564383, guid: 422b4b8b4b7dc0040b07fe520c75bd53,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520132504233632223, guid: 422b4b8b4b7dc0040b07fe520c75bd53,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6863010847608031640, guid: 422b4b8b4b7dc0040b07fe520c75bd53,
         type: 3}

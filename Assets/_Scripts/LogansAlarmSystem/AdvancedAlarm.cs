@@ -28,7 +28,7 @@ namespace LogansAlarmSystem
 
         public UnityEvent Event_OnAlarmEnd;
 
-        public AdvancedAlarm(AlarmMode mode, float myDur)
+        public AdvancedAlarm( AlarmMode mode, float myDur )
         {
             Mode = mode;
             currentValue = 0;
@@ -45,11 +45,11 @@ namespace LogansAlarmSystem
         /// </summary>
         public void Reset()
         {
-            if (Mode == AlarmMode.CountingDown)
+            if ( Mode == AlarmMode.CountingDown )
             {
                 currentValue = Duration;
             }
-            else if (Mode == AlarmMode.CountingUp)
+            else if ( Mode == AlarmMode.CountingUp )
             {
                 currentValue = 0f;
             }
@@ -65,7 +65,7 @@ namespace LogansAlarmSystem
         /// </summary>
         /// <param name="timeMult"></param>
         /// <returns>true if the alarm hits its goal on this call. False if not.</returns>
-        public bool MoveTowardGoal(float timeMult)
+        public bool MoveTowardGoal( float timeMult )
         {
             if (Mode == AlarmMode.CountingDown)
             {

@@ -703,13 +703,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 334040940}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20791169, y: 0, z: 0, w: 0.9781476}
+  m_LocalRotation: {x: 0.058541793, y: 0.03653964, z: -0.02643237, w: 0.9972658}
   m_LocalPosition: {x: 0, y: 1.645, z: 0.00000007505039}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1620553136}
-  m_LocalEulerAnglesHint: {x: 24, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 6.817, y: 4.03, z: -2.796}
 --- !u!82 &334040945
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1053,25 +1053,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 784127412824555899, guid: 3f6227632753f41468ed7d2b74ec1053,
+    - target: {fileID: 2071406966053689812, guid: 3f6227632753f41468ed7d2b74ec1053,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: InitialModule.startSize.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071406966053689812, guid: 3f6227632753f41468ed7d2b74ec1053,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3221479707238074428, guid: 3f6227632753f41468ed7d2b74ec1053,
+    - target: {fileID: 2071406966053689812, guid: 3f6227632753f41468ed7d2b74ec1053,
         type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221479707238074428, guid: 3f6227632753f41468ed7d2b74ec1053,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221479707238074428, guid: 3f6227632753f41468ed7d2b74ec1053,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4376894262052982755, guid: 3f6227632753f41468ed7d2b74ec1053,
         type: 3}
@@ -1128,10 +1123,35 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3bb9ef1e0a10f1b49afdbe2b5855d069, type: 2}
+    - target: {fileID: 5121898321756807472, guid: 3f6227632753f41468ed7d2b74ec1053,
+        type: 3}
+      propertyPath: m_Range
+      value: 7.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852681785495214249, guid: 3f6227632753f41468ed7d2b74ec1053,
+        type: 3}
+      propertyPath: m_Range
+      value: 13.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852681785495214249, guid: 3f6227632753f41468ed7d2b74ec1053,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 103.80684
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852681785495214249, guid: 3f6227632753f41468ed7d2b74ec1053,
+        type: 3}
+      propertyPath: m_ColorTemperature
+      value: 5386
+      objectReference: {fileID: 0}
     - target: {fileID: 5953160452424155305, guid: 3f6227632753f41468ed7d2b74ec1053,
         type: 3}
       propertyPath: m_Name
       value: '[---- ENVIRONMENT ----]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752863845725931554, guid: 3f6227632753f41468ed7d2b74ec1053,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1304.4752
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2340,7 +2360,7 @@ MonoBehaviour:
     Event_StageEnd:
       m_PersistentCalls:
         m_Calls: []
-  SessionDuration: 120
+  SessionDuration: 180
   Event_SessionEnded:
     m_PersistentCalls:
       m_Calls: []
@@ -2905,7 +2925,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2594944123083208085
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2980,8 +3000,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.26554143}
   m_AnchorMax: {x: 0.19130015, y: 0.7735005}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.37219238}
+  m_SizeDelta: {x: 0, y: 51.3261}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3438613277288426116
 CanvasRenderer:
@@ -3164,8 +3184,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 13.67
